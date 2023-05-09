@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CADASTRO DE JOGOS</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" >
+</head>
+<body>
+    <div class="col-8 m-auto pt-2 pb-2 text-center">
+        <h1>CADASTRO DE JOGOS</h1>
+    </div>
+
+    <div class="col-8 m-auto pt-3 pb-2 text-center">
+        <a href="/form" class="btn btn-success text-center">Adicionar</a>
+    </div>
+
+    <div class="col-8 m-auto pt-4 pb-2">
+        <table class="table table-striped table-dark">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Jogo</th>
+                    <th scope="col">Desenvolvedor</th>
+                    <th scope="col">Plataforma</th>
+                    <th scope="col">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for dbs in db %}
+                <tr class="text-center">
+                        <th>{{dbs.id}}</th>
+                        <td>{{dbs.jogo}}</td>
+                        <td>{{dbs.plataforma}}</td>
+                        <td>{{dbs.desenvolvedor}}</td>
+                        <td class="text-center">
+                            <a href="/view/{{dbs.id}}/" type="button" class="btn btn-info">Visualizar</a>
+                            <a href="" type="button" class="btn btn-primary">Editar</a>
+                            <a href="" type="button" class="btn btn-danger">Deletar</a>
+                        </td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
