@@ -1,10 +1,21 @@
 from django.shortcuts import render, redirect
 from app.forms import JogosForm
 from app.models import Jogos
+from django.core.paginator import Paginator
+
 # Create your views here.
 def home(request):
     data = {}
-    data['db'] = Jogos.objects.all()
+    search = request.GET.get('search')
+    if search:
+        data['db'] = Jogos.objects.filter(plataforma__icontains=search)
+    else:
+        data['db'] = Jogos.objects.all()
+
+    #all = Jogos.objects.all()
+    #paginator = Paginator(all, 5)
+    #pages = request.GET.get('page')
+    #data['db'] = paginator.get_page(pages)
     return render(request, 'index.html', data)
 
 def form(request):
