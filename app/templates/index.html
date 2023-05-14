@@ -34,8 +34,8 @@
                         <td>{{dbs.desenvolvedor}}</td>
                         <td class="text-center">
                             <a href="/view/{{dbs.id}}/" type="button" class="btn btn-info">Visualizar</a>
-                            <a href="" type="button" class="btn btn-primary">Editar</a>
-                            <a href="" type="button" class="btn btn-danger">Deletar</a>
+                            <a href="/edit/{{dbs.id}}/" type="button" class="btn btn-primary">Editar</a>
+                            <a href="/delete/{{dbs.id}}/" type="button" class="btn btn-danger btnDel">Deletar</a>
                         </td>
                 </tr>
             {% endfor %}
@@ -43,5 +43,8 @@
             </tbody>
         </table>
     </div>
+
+    {% load static %}
+    <script src="{% static 'javascript.js' %}"></script>
 </body>
 </html>
